@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD de Usuarios</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #FBFBFB;
+    }
+
+    header {
+      background-color: #003366;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      margin-right: 1rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    main {
+      margin: 1rem;
+    }
+
+    section {
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .centrar {
+      width: 700px;
+      margin: auto;
+    }
+
+    .edits {
+      float: right;
+    }
+
+    .linea {
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="centrar">
+      <h2>Lista de Usuarios</h2>
+      <ul>
+        <% users.forEach((user) => { %>
+          <div class="linea">
+            <li>
+              <%= user.name %> (<%= user.email %>)
+              <div class="edits">
+                <a class="btn btn-success" href="/users/edit/<%= user._id %>">Editar</a>
+                <a class="btn btn-danger" href="/users/delete/<%= user._id %>">Eliminar</a>
+              </div>
+            </li>
+          </div>
+        <% }) %>
+      </ul>
+      <section>
+        <div class="centrar">
+          <a class="btn btn-primary" href="/agregar">Agregar</a>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
